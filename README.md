@@ -3,7 +3,10 @@
 ## Concept
 
 When using RecyclerView, it's our responsibility to notify the change we made when we insert/update/remove the existing dataset.
-But it's also easy to make mistake accidentally because we have to sync all the operation we made all the time in both side. So there are tools like DiffUtil help us to get rid of calling notifyXXX manually. But in order to use DiffUtil, we have to copy our original dataset and modify on the new dataset to let DiffUtil do the compare things. The cost is approximate at O(N), but in most cases we can do even better since in the data modification stage we always know which part is modified. The idea of AutoNotifyList is to wrap the data we want to use and automatically calling related notifyXXX when we modify the dataset. So we can focus on the data itself and don't have to worry about how to notify the change correctly.
+
+But it's also easy to make mistake accidentally because we have to sync all the operation we made all the time in both side. So there are tools like DiffUtil help us to get rid of calling notifyXXX manually. But in order to use DiffUtil, we have to copy our original dataset and modify on the new dataset to let DiffUtil do the compare things. The cost is approximate at O(N), but in most cases we can do even better since in the data modification stage we always know which part is modified. 
+
+The idea of AutoNotifyList is to wrap the data we want to use and automatically calling related notifyXXX when we modify the dataset. So we can focus on the data itself and don't have to worry about how to notify the change correctly.
 
 ## Usage
 Just use AutoNotifyList as your data and do as many insert/update/remove you want.
