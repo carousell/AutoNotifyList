@@ -1,7 +1,7 @@
 package com.carousell.autonotifylist
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.carousell.autonotifylist.databinding.ActivityMainBinding
@@ -11,6 +11,7 @@ import java.util.*
 import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding = ActivityMainBinding.inflate(layoutInflater)
@@ -18,7 +19,7 @@ class MainActivity : AppCompatActivity() {
 
         val adapter = MyAdapter()
         binding.recyclerView.layoutManager =
-                LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+            LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         binding.recyclerView.adapter = adapter
 
         val list = adapter.list
@@ -32,7 +33,7 @@ class MainActivity : AppCompatActivity() {
                     list.add(findIndex(list, it), it)
                 }
 
-                if (random.nextBoolean()) {
+                if (random.nextFloat() > 0.7) {
                     delay(100)
                     val value = list.removeAt(random.nextInt(list.size))
                     queue.offer(value)

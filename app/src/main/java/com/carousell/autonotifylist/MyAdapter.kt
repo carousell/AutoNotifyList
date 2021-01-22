@@ -5,13 +5,17 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.carousell.autonotifylist.databinding.AdapterMainBinding
 
-class MyAdapter : RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
+interface OnRemoveListener<T> {
+    fun onRemove(item: T)
+}
 
-    val list = AutoNotifyList.bind(mutableListOf<Int>(), this)
+class MyAdapter : RecyclerView.Adapter<MyAdapter.MyViewHolder>(), OnRemoveListener<Int> {
+
+    val list = AutoNotifyList<Int>(this)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
-        return MyViewHolder(AdapterMainBinding.inflate(layoutInflater, parent, false))
+        return MyViewHolder(AdapterMainBinding.inflate(layoutInflater, parent, false), this)
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
@@ -22,11 +26,20 @@ class MyAdapter : RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
         return list.size
     }
 
-    class MyViewHolder(private val binding: AdapterMainBinding) :
-        RecyclerView.ViewHolder(binding.root) {
+    override fun onRemove(item: Int) {
+        list.remove(item)
+    }
+
+    class MyViewHolder(
+        private val binding: AdapterMainBinding,
+        private val onRemoveListener: OnRemoveListener<Int>
+    ) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(value: Int) {
             binding.textView.text = value.toString()
+            binding.root.setOnClickListener {
+                onRemoveListener.onRemove(value)
+            }
         }
     }
 }
