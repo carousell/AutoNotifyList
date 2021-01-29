@@ -3,6 +3,7 @@ package com.carousell.autonotifylist
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.carousell.autonotify.AutoNotifyList
 import com.carousell.autonotifylist.databinding.AdapterMainBinding
 
 interface OnRemoveListener<T> {
