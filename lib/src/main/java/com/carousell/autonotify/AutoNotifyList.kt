@@ -1,4 +1,4 @@
-package com.carousell.autonotifylist
+package com.carousell.autonotify
 
 import androidx.recyclerview.widget.RecyclerView
 

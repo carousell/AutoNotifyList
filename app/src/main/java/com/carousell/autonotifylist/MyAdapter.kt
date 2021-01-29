@@ -11,7 +11,7 @@ interface OnRemoveListener<T> {
 
 class MyAdapter : RecyclerView.Adapter<MyAdapter.MyViewHolder>(), OnRemoveListener<Int> {
 
-    val list = AutoNotifyList<Int>(this)
+    val list = com.carousell.autonotify.AutoNotifyList<Int>(this)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
