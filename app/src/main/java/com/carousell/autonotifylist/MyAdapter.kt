@@ -3,6 +3,7 @@ package com.carousell.autonotifylist
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.carousell.autonotify.AutoNotifyList
 import com.carousell.autonotifylist.databinding.AdapterMainBinding
 
 interface OnRemoveListener<T> {
@@ -11,7 +12,7 @@ interface OnRemoveListener<T> {
 
 class MyAdapter : RecyclerView.Adapter<MyAdapter.MyViewHolder>(), OnRemoveListener<Int> {
 
-    val list = com.carousell.autonotify.AutoNotifyList<Int>(this)
+    val list = AutoNotifyList<Int>(this)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
