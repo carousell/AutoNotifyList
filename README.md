@@ -11,6 +11,14 @@ But it's also easy to make mistake accidentally because we have to sync all the 
 
 The idea of AutoNotifyList is to wrap the data we want to use and automatically calling related notifyXXX when we modify the dataset. So we can focus on the data itself and don't have to worry about how to notify the change correctly.
 
+## Install
+
+With setup of Jitpack first, than add dependency in your build.gradle
+```groovy
+implementation 'com.github.carousell:AutoNotifyList:0.1'
+```
+
+
 ## Usage
 Just use AutoNotifyList as your data and do as many insert/update/remove you want.
 ```kotlin
