@@ -1,5 +1,8 @@
 # AutoNotifyList
 
+[![CircleCI](https://circleci.com/gh/carousell/AutoNotifyList.svg?style=shield)](https://circleci.com/gh/carousell/AutoNotifyList)
+[![jitpack](https://jitpack.io/v/carousell/AutoNotifyList.svg)](https://jitpack.io/#carousell/AutoNotifyList)
+
 ## Concept
 
 When using RecyclerView, it's our responsibility to notify the change we made when we insert/update/remove the existing dataset.
